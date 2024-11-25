@@ -4,10 +4,13 @@
 #include "net/tcp_client.hpp"
 #include "net/tcp_server.hpp"
 
+#include "dto/radar_raw.h"
+#include "dto/flying_object.h"
+
 int test_multicast_recv() {
     const std::string multicastAddress = "239.255.0.1";
     const uint16_t port = 40000;
-
+    
     try {
         boost::asio::io_service io_service;
         MulticastRecv client(io_service, multicastAddress, port);

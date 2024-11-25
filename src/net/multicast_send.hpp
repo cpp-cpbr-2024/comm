@@ -1,9 +1,10 @@
 #pragma once
-#include "Socket.hpp"
+#include "socket.hpp"
 #include <boost/asio.hpp>
 #include <string>
 
-class MulticastSender : public BaseSender {
+class MulticastSender : public Socket 
+{
 public:
     MulticastSender(boost::asio::io_context& ioContext, std::string multicastAddress, uint16_t port);
     bool send(std::vector<uint8_t> data) override;
