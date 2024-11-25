@@ -7,5 +7,5 @@ public:
     Time(uint64_t miliseconds = 0UL) 
         : Unit(miliseconds) {}
 
-    uint64_t get_seconds() { return get_raw(); }
+    uint64_t get_seconds() const { return get_raw(); }
 };

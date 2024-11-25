@@ -1,12 +1,14 @@
+#pragma once
 #include <cstdint>
 #include <cassert>
+#include "../units/unit.h"
 #include "../units/units.h"
 
-struct __attribute__((packed)) RadarRaw 
+struct PACKED RadarRaw 
 {
     uint16_t id;
     Time timestamp;
-    Distance distance;
+    Distance range;
     Angle azimuth; 
     Velocity radial_velocity;
 };

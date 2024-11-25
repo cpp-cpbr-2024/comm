@@ -1,9 +1,11 @@
+#pragma once
 #include <cstdint>
 #include <cassert>
 #include "vector_2d.h"
+#include "../units/unit.h"
 #include "../units/units.h"
 
-struct __attribute__((packed)) FlyingObject
+struct PACKED FlyingObject
 { 
     uint16_t id;
     Time timestamp;

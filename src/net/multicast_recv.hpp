@@ -1,4 +1,4 @@
-
+#pragma once
 #include <boost/asio.hpp>
 #include <optional>
 #include <vector>
@@ -6,11 +6,10 @@
 
 #include "socket.hpp"
 
-class MulticastRecv : Socket
+class MulticastRecv : public Socket
 {
 public:
     MulticastRecv(boost::asio::io_service& io_service, std::string multicastAddress, uint16_t port);
-    virtual ~MulticastRecv();
     bool joinGroup();
 
     std::optional<std::vector<uint8_t>> recv() override;

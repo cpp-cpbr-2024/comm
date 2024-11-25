@@ -20,3 +20,8 @@ bool MulticastSender::send(std::vector<uint8_t> data) {
         return false;
     }
 }
+
+std::optional<std::vector<uint8_t>> MulticastSender::recv()
+{
+    return std::nullopt;
+}

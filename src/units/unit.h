@@ -9,7 +9,7 @@ public:
     Unit(T init_val = T())
         : _val{init_val} {};
 
-    T get_raw() { return _val; }
+    T get_raw() const { return _val; }
     void set_raw(T val) {_val = val;}
 
 protected:

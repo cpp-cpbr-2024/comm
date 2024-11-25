@@ -11,11 +11,6 @@ MulticastRecv::MulticastRecv(boost::asio::io_service& io_service, std::string mu
     socket_.bind(listenEndpoint_);
 }
 
-MulticastRecv::~MulticastRecv()
-{
-    ;
-}
-
 bool MulticastRecv::joinGroup()
 {
     try
