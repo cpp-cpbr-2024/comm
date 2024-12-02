@@ -11,9 +11,7 @@ public:
     RadarRawSubscriber(boost::asio::io_context& ioContext)
         : Subscriber(std::move(std::make_unique<MulticastRecv>(
             ioContext, network_config::raw_radar_multicast_ip, network_config::raw_radar_multicast_port))) 
-    {
-        
-    }
+    {}
 
     ~RadarRawSubscriber() override = default;
 };

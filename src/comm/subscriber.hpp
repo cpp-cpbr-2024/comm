@@ -1,7 +1,9 @@
 #pragma once
 #include <atomic>
+#include <functional>
 #include <memory>
 #include <thread>
+#include <vector>
 #include "serializer.hpp"
 #include "../net/socket.hpp"
 

@@ -9,6 +9,7 @@ MulticastRecv::MulticastRecv(boost::asio::io_service& io_service, std::string mu
     socket_.open(listenEndpoint_.protocol());
     socket_.set_option(boost::asio::ip::udp::socket::reuse_address(true));
     socket_.bind(listenEndpoint_);
+    joinGroup();
 }
 
 bool MulticastRecv::joinGroup()

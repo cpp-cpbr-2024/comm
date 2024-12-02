@@ -1,5 +1,4 @@
-#include "comm/publishers.hpp"
-#include "comm/subscribers.hpp"
+#include "Comm.hpp"
 #include <iostream>
 
 int main()
