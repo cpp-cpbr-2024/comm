@@ -14,7 +14,7 @@ public:
     }
 
 protected:
-    Publisher(std::unique_ptr<Socket> socket)
+    Publisher(std::unique_ptr<Socket>&& socket)
         : _socket(std::move(socket)) {}
 
     virtual ~Publisher() = default;
