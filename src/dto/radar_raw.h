@@ -11,6 +11,6 @@ struct PACKED RadarRaw
     Distance range;
     Angle azimuth; 
     Velocity radial_velocity;
-};
+} END_PACKED;
 
 static_assert(sizeof(RadarRaw) == 22);

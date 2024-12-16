@@ -11,6 +11,6 @@ struct PACKED FlyingObject
     Time timestamp;
     Vector2D<Distance> position;
     Vector2D<Velocity> velocity; 
-};
+} END_PACKED;
 
 static_assert(sizeof(FlyingObject) == 26);

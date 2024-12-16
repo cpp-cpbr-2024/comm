@@ -8,4 +8,4 @@ public:
         : Unit(meters) {}
 
     float get_meters() const { return get_raw(); }
-};
+} END_PACKED;

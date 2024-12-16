@@ -8,4 +8,4 @@ public:
         : Unit(meters_per_second) {}
 
     float get_meters_per_second() const { return get_raw(); }
-};
+} END_PACKED;
