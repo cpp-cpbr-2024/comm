@@ -46,7 +46,7 @@ public:
     }
 
 protected:
-    Subscriber(std::unique_ptr<Socket> socket)
+    Subscriber(std::unique_ptr<Socket>&& socket)
         : _socket(std::move(socket)) {}
 
     virtual ~Subscriber()
