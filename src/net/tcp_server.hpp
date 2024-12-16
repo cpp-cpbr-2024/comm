@@ -15,7 +15,7 @@ using boost::asio::ip::tcp;
 class TcpServer : Socket
 {
 public:
-    TcpServer(boost::asio::io_service& io_service, uint16_t port);
+    TcpServer(boost::asio::io_context& io_context, uint16_t port);
     virtual ~TcpServer();
 
     bool accept();

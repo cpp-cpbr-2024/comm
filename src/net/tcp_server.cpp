@@ -1,8 +1,8 @@
 #include "tcp_server.hpp"
 
-TcpServer::TcpServer(boost::asio::io_service& io_service, uint16_t port)
-    :   acceptor_(io_service, tcp::endpoint(tcp::v4(), port)),
-        socket_(io_service)
+TcpServer::TcpServer(boost::asio::io_context& io_context, uint16_t port)
+    :   acceptor_(io_context, tcp::endpoint(tcp::v4(), port)),
+        socket_(io_context)
 {
 
 }
@@ -53,7 +53,9 @@ std::optional<std::vector<uint8_t>> TcpServer::recv()
         throw boost::system::system_error(error);
     }
 
-    const char* data = boost::asio::buffer_cast<const char*>(receive_buffer.data());
+    // const char* data = boost::asio::buffer_cast<const char*>(receive_buffer.data());
+    const auto data = static_cast<const char*>(receive_buffer.data().data());
+
     std::vector<uint8_t> result(data, data + receive_buffer.size());
     return result;
 }

@@ -15,8 +15,8 @@ using boost::asio::ip::tcp;
 class TcpClient : Socket
 {
 public:
-    TcpClient(boost::asio::io_service& io_service, std::string ip, uint16_t port);
-    virtual ~TcpClient();
+    TcpClient(boost::asio::io_context& io_context, std::string ip, uint16_t port);
+    ~TcpClient() override;
 
     bool connect();
 
