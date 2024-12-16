@@ -13,7 +13,6 @@ find_package(Boost REQUIRED COMPONENTS system)
 file(GLOB_RECURSE SOURCES "src/*.cpp")
 
 add_library(Comm ${SOURCES})
-#target_link_libraries(Comm PRIVATE Boost::boost Boost::system Boost::asio)
 if(DEFINED OVERRIDE_BOOST_PATH)
     target_include_directories(Comm PUBLIC ${PROJECT_SOURCE_DIR}/include ${OVERRIDE_BOOST_PATH})
 else()
