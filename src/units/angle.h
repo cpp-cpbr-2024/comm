@@ -10,4 +10,4 @@ public:
 
     float get_radians() const { return get_raw(); }
     float get_degrees() const { return get_raw() * 180.0f * std::numbers::inv_pi_v<float>; }
-};
+} END_PACKED;
