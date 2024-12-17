@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 
 project(Comm)
 
-# set(OVERRIDE_BOOST_PATH "/opt/homebrew/Cellar/boost/1.87.0/include")
+set(OVERRIDE_BOOST_PATH "/usr/local/Cellar/boost/1.87.0/include")
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
