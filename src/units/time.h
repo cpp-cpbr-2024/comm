@@ -8,4 +8,4 @@ public:
         : Unit(miliseconds) {}
 
     uint64_t get_seconds() const { return get_raw(); }
-};
+} END_PACKED;

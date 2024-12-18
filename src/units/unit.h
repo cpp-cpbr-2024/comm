@@ -1,6 +1,15 @@
 #pragma once
 
-#define PACKED __attribute__((packed))
+#if defined(_MSC_VER) // For MSVC
+  #define PACKED __pragma(pack(push, 1))
+  #define END_PACKED __pragma(pack(pop))
+#elif defined(__GNUC__) || defined(__clang__) // For GCC/Clang
+  #define PACKED __attribute__((packed))
+  #define END_PACKED
+#else
+  #error "Unsupported compiler"
+#endif
+
 
 template <typename T>
 class PACKED Unit
@@ -14,4 +23,4 @@ public:
 
 protected:
     T _val;
-};
+} END_PACKED;

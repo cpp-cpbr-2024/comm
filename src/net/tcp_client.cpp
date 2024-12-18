@@ -1,7 +1,7 @@
 #include "tcp_client.hpp"
 
-TcpClient::TcpClient(boost::asio::io_service& io_service, std::string ip, uint16_t port)
-    :   socket_(io_service), ip_{ip}, port_{port}
+TcpClient::TcpClient(boost::asio::io_context& io_context, std::string ip, uint16_t port)
+    :   socket_(io_context), ip_{ip}, port_{port}
 {
     ;
 }
@@ -13,7 +13,7 @@ TcpClient::~TcpClient()
 
 bool TcpClient::connect()
 {
-    socket_.connect( tcp::endpoint( boost::asio::ip::address::from_string(ip_), port_ ));
+    socket_.connect( tcp::endpoint( boost::asio::ip::make_address(ip_), port_ ));
     return true;
 }
 
@@ -52,7 +52,9 @@ std::optional<std::vector<uint8_t>> TcpClient::recv()
         throw boost::system::system_error(error);
     }
 
-    const char* data = boost::asio::buffer_cast<const char*>(receive_buffer.data());
+    // const char* data = boost::asio::buffer_cast<const char*>(receive_buffer.data().data());
+    const auto data = static_cast<const char*>(receive_buffer.data().data());
+
     std::vector<uint8_t> result(data, data + receive_buffer.size());
     return result;
 }

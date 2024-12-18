@@ -1,8 +1,8 @@
 #include "multicast_recv.hpp"
 #include <iostream>
 
-MulticastRecv::MulticastRecv(boost::asio::io_service& io_service, std::string multicastAddress, uint16_t port)
-    : socket_(io_service),
+MulticastRecv::MulticastRecv(boost::asio::io_context& io_context, const std::string& multicastAddress, uint16_t port)
+    : socket_(io_context),
       multicastAddress_(boost::asio::ip::make_address(multicastAddress)),
       listenEndpoint_(boost::asio::ip::udp::v4(), port)
 {

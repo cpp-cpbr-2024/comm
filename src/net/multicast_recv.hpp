@@ -9,7 +9,7 @@
 class MulticastRecv : public Socket
 {
 public:
-    MulticastRecv(boost::asio::io_service& io_service, std::string multicastAddress, uint16_t port);
+    MulticastRecv(boost::asio::io_context& io_context, const std::string& multicastAddress, uint16_t port);
     bool joinGroup();
 
     std::optional<std::vector<uint8_t>> recv() override;
@@ -20,5 +20,5 @@ private:
     boost::asio::ip::udp::endpoint senderEndpoint_;
     boost::asio::ip::udp::endpoint listenEndpoint_;
     boost::asio::ip::address multicastAddress_;
-    std::array<uint8_t, 1500> recvBuffer_; // Buffer size for UDP packet
+    std::array<uint8_t, 1500> recvBuffer_{}; // Buffer size for UDP packet
 };

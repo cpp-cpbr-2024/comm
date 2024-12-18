@@ -6,4 +6,4 @@ struct PACKED Vector2D
 {
     T x;
     T y;
-};
+} END_PACKED;
